@@ -111,20 +111,18 @@ class Tagger:
         with open('my_tagger.yml', 'w') as file_writing:
             yaml.dump(brill_tagger, file_writing)
 
-    @classmethod
-    def load(cls, modelFile):
+    def load(self, modelFile):
         if not os.path.exists(modelFile):
             raise FileNotFoundError("The model file: {} not found.".format(modelFile))
         try:
             with open(modelFile) as file:
-                myTagger = yaml.load(file)
-            if not isinstance(myTagger, brill.BrillTagger):
+                self.myTagger = yaml.load(file)
+            if not isinstance(self.myTagger, brill.BrillTagger):
                 raise TypeError(
                     "The model file: {} could not be loaded as a nltk.tag.brill.BrillTagger object".format(
                         modelFile
                     )
                 )
-            return cls(myTagger)
         except ParserError as error:
             print(error)
             raise TypeError("Could not load file {} as yaml file.".format(modelFile))

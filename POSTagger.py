@@ -11,10 +11,10 @@ from nltk.tag import UnigramTagger, BigramTagger, TrigramTagger, RegexpTagger, b
 
 
 class Tagger:
-    def __init__(self, tagger):
-        self.myTagger = tagger
-        
-    def train(self,):
+    def __init__(self):
+        pass
+            
+    def train(self):
         # Brill tagger parameters
         max_rules = 300
         min_score = 3
@@ -106,6 +106,7 @@ class Tagger:
 
             i = i + 1
 
+        self.myTagger = brill_tagger
         # Saving my tagger
         with open('my_tagger.yml', 'w') as file_writing:
             yaml.dump(brill_tagger, file_writing)

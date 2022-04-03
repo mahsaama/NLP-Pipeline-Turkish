@@ -16,4 +16,4 @@ class StopwordRemover:
             if w not in self.stop_words_list:
                 filtered_sentence.append(w)
 
-        return word_tokens, filtered_sentence
+        return filtered_sentence

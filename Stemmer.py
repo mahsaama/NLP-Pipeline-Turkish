@@ -50,7 +50,7 @@ class Stemmer:
                                 and len(token[:-length]) > 2
                             ):
                                 token = token[:-length]
-                                print(token)
+                                # print(token)
                             # Also check if it is a very small stem possibly
                             elif token[:-length] in self.small_stems_list:
                                 token = token[:-length]
